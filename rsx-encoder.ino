@@ -42,5 +42,6 @@ void loop() {
     Serial.print("Sent ");
     Serial.print(send_cnt);
     Serial.println(" Messages.");
+    //lia was here :D
   }
 }
