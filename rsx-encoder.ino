@@ -1,3 +1,5 @@
+#include <mcp2515.h>
+
 #include <circular_buffer.h>
 #include <science_can.h>
 
@@ -34,7 +36,7 @@ void loop() {
   while (!Science::rx_buffer.empty()) {
     Science::ScienceCANMessage incoming_message = Science::rx_buffer.pop();
     if (incoming_message.peripheral_ = kPeripheralServo) {
-      servo_step(incoming_message.data_[0]);
+      //servo_step(incoming_message.data_[0]);
     }
   }
 
