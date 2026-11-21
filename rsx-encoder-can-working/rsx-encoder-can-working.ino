@@ -8,7 +8,7 @@
 // SI to Pin 11
 // SO to Pin 12
 // CS to 10
-module_t CAN_MODULE = kModuleDrill;
+module_t CAN_MODULE = kModuleDiffBar;
 void setup() {
   Serial.begin(115200);
 
@@ -51,9 +51,9 @@ void loop() {
   Science::ScienceCANMessage send_back;
   send_back.priority_ = 0x0;
   send_back.multipacket_id_ = 0x0;
-  send_back.sender_ = kModuleDrill;
-  send_back.receiver_ = kModuleRPi;
-  send_back.peripheral_ = kPeripheralUltrasonic;
+  send_back.sender_ = kModuleDiffBar;
+  send_back.receiver_ = kModuleNone;
+  send_back.peripheral_ = kPeripheralAbsoluteEncoder;
   send_back.dlc_ = 4;
   *((float*) (send_back.data_)) = dist; // Copy 32b float into 8b[4]
   Science::tx_buffer.push(send_back);
